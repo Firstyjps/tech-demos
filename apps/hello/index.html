@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>tech-demos — hello</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #163028;
+      --ink-soft: #3a5448;
+      --paper: #f3f7f4;
+      --moss: #2d6a4f;
+      --moss-deep: #1b4332;
+      --highlight: #d4a017;
+      --line: rgba(22, 48, 40, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+    }
+
+    body {
+      font-family: "Manrope", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse 90% 60% at 8% 0%, rgba(212, 160, 23, 0.18), transparent 55%),
+        radial-gradient(ellipse 70% 55% at 100% 20%, rgba(45, 106, 79, 0.16), transparent 50%),
+        radial-gradient(ellipse 80% 50% at 50% 100%, rgba(27, 67, 50, 0.1), transparent 55%),
+        linear-gradient(180deg, #eef5f0 0%, var(--paper) 45%, #e4eee7 100%);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.35;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cpath fill='none' stroke='%23163028' stroke-opacity='0.08' stroke-width='1' d='M0 80h160M80 0v160'/%3E%3Ccircle cx='80' cy='80' r='28' fill='none' stroke='%23163028' stroke-opacity='0.06'/%3E%3C/svg%3E");
+      animation: drift 36s linear infinite;
+    }
+
+    @keyframes drift {
+      from { background-position: 0 0; }
+      to { background-position: 160px 160px; }
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes soft-breathe {
+      0%, 100% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.05); opacity: 1; }
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: clamp(2rem, 6vw, 4rem);
+      overflow: hidden;
+    }
+
+    .hero-art {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background:
+        linear-gradient(120deg, transparent 40%, rgba(243, 247, 244, 0.35) 100%),
+        url("https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1800&q=80")
+          center / cover no-repeat;
+      filter: saturate(0.7) contrast(0.95);
+      opacity: 0.28;
+      animation: soft-breathe 12s ease-in-out infinite;
+    }
+
+    .copy {
+      position: relative;
+      z-index: 1;
+      max-width: 38rem;
+      text-align: center;
+    }
+
+    .brand {
+      font-family: "Fraunces", serif;
+      font-optical-sizing: auto;
+      font-weight: 650;
+      font-size: clamp(3.2rem, 10vw, 6rem);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      animation: rise 0.85s ease-out both;
+    }
+
+    .brand span {
+      color: var(--moss);
+    }
+
+    h1 {
+      margin-top: 1.25rem;
+      font-family: "Fraunces", serif;
+      font-weight: 500;
+      font-size: clamp(1.25rem, 3.2vw, 1.75rem);
+      line-height: 1.35;
+      color: var(--ink-soft);
+      animation: rise 0.85s ease-out 0.15s both;
+    }
+
+    .lede {
+      margin-top: 0.95rem;
+      font-size: clamp(0.95rem, 2.1vw, 1.05rem);
+      line-height: 1.7;
+      color: var(--ink-soft);
+      animation: rise 0.85s ease-out 0.28s both;
+    }
+
+    .cta-group {
+      margin-top: 1.85rem;
+      display: flex;
+      justify-content: center;
+      animation: rise 0.85s ease-out 0.4s both;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.3rem;
+      background: var(--moss-deep);
+      color: #f5faf7;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      border: 1px solid transparent;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .cta:hover,
+    .cta:focus-visible {
+      background: var(--moss);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .cta i {
+      font-style: normal;
+      color: var(--highlight);
+      transition: transform 0.2s ease;
+    }
+
+    .cta:hover i,
+    .cta:focus-visible i {
+      transform: translateX(3px);
+    }
+  </style>
+</head>
+<body>
+  <main class="hero">
+    <div class="hero-art" role="img" aria-label="โต๊ะทำงานพร้อมโน้ตบุ๊กและโค้ด"></div>
+    <div class="copy">
+      <p class="brand">tech-<span>demos</span></p>
+      <h1>ที่เก็บเดโมรายวันจาก bookmark บน X</h1>
+      <p class="lede">
+        ทุกวันเลือกหนึ่งไอเดีย แล้วสร้างแอปเล็ก ๆ ไว้ใต้ apps/
+        — หน้านี้คือแอปแรก: hello
+      </p>
+      <div class="cta-group">
+        <a class="cta" href="#about">อ่านแนวทางเดโม <i aria-hidden="true">→</i></a>
+      </div>
+    </div>
+  </main>
+
+  <section id="about" style="
+    max-width: 38rem;
+    margin: 0 auto;
+    padding: 0 clamp(1.5rem, 5vw, 3rem) 5rem;
+    text-align: center;
+    border-top: 1px solid var(--line);
+    padding-top: 3rem;
+  ">
+    <h2 style="
+      font-family: 'Fraunces', serif;
+      font-weight: 650;
+      font-size: clamp(1.4rem, 3vw, 1.85rem);
+      color: var(--ink);
+    ">หนึ่งวัน หนึ่งแอป</h2>
+    <p style="
+      margin-top: 0.85rem;
+      line-height: 1.7;
+      color: var(--ink-soft);
+    ">
+      Repo นี้เอาไว้เก็บเดโมรายวัน — หยิบเทคนิคหรือเครื่องมือจาก bookmark
+      แล้วลองสร้างเป็นแอปสั้น ๆ ให้เปิดดูและเรียนรู้ได้ทันที
+    </p>
+  </section>
+</body>
+</html>
