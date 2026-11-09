@@ -58,6 +58,10 @@ Skeleton and drill-down, `find`, sessions, screenshots, headed pointer gestures,
 
 `bun test` covers ref validation, argv construction, session-file parsing, and sample replay. No git hooks in this cut: the check is one fast test script, and a hook would not add a second kind of signal.
 
+## After the first slice
+
+The live path ran on this Ubuntu 24.04 X11 session. `status` was `granted`, a snapshot of the bundled GTK window returned qualified refs, `type` into Note was `delivered_verified`, and `click` on Ping changed the label to `Pong: …` on the next snapshot. Sample replay stays a labeled fixture and does not call the CLI. Scope did not need to grow.
+
 ## Deferred
 
 - Drill-down (`--skeleton`, `--root`) and `find`. The full tree of a small window fits on one screen; large apps can turn on interactive-only.
