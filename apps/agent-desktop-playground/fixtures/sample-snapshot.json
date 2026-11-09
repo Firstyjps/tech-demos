@@ -1,0 +1,42 @@
+{
+  "version": "2.6",
+  "ok": true,
+  "command": "snapshot",
+  "data": {
+    "app": "playground-target",
+    "complete": true,
+    "ref_count": 2,
+    "snapshot_id": "ssamplefixture",
+    "window": {
+      "id": "sample-window",
+      "title": "Playground Target"
+    },
+    "tree": {
+      "role": "window",
+      "name": "Playground Target",
+      "children": [
+        {
+          "role": "group",
+          "children": [
+            {
+              "role": "textfield",
+              "name": "Note",
+              "ref_id": "@ssamplefixture:e1",
+              "available_actions": ["Click", "SetValue", "TypeText", "SetFocus"]
+            },
+            {
+              "role": "button",
+              "name": "Ping",
+              "ref_id": "@ssamplefixture:e2",
+              "available_actions": ["Click", "SetFocus"]
+            },
+            {
+              "role": "statictext",
+              "name": "Waiting"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
